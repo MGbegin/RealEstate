@@ -1,0 +1,67 @@
+{
+    "home": {
+        "buttonText": "Explore Properties",
+        "slides": [
+            {
+                "title": "Luxury Sea-Facing Living in Mumbai",
+                "subtitle": "Discover architectural marvels along Worli Sea Face with uncompromised panoramic ocean views.",
+                "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80"
+            },
+            {
+                "title": "Modern Smart Villas in Bengaluru",
+                "subtitle": "Experience tech-enabled gated community living nestled in serene green neighborhoods.",
+                "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80"
+            },
+            {
+                "title": "Exclusive Independent Floors in Delhi-NCR",
+                "subtitle": "Prime multi-story freehold properties tailored for ultimate privacy and family comfort.",
+                "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80"
+            }
+        ]
+    },
+    "properties": {
+        "title": "Featured Properties in India",
+        "subtitle": "Hand-picked luxury real estate ready for you in prime locations.",
+        "listings": [
+            { 
+                "name": "Luxury Sea-Facing 4BHK", 
+                "price": "₹12.5 Crores", 
+                "location": "Worli, Mumbai",
+                "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80"
+            },
+            { 
+                "name": "Modern Smart Villa", 
+                "price": "₹3.8 Crores", 
+                "location": "Whitefield, Bengaluru",
+                "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80"
+            },
+            { 
+                "name": "Independent Builder Floor", 
+                "price": "₹4.5 Crores", 
+                "location": "Vasant Vihar, New Delhi",
+                "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
+            }
+        ]
+    },
+    "agents": {
+        "title": "Meet Our Real Estate Experts",
+        "subtitle": "Dedicated professionals with deep insights into the Indian property market.",
+        "team": [
+            { 
+                "name": "Aarav Sharma", 
+                "role": "Senior Luxury Consultant - Mumbai",
+                "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80"
+            },
+            { 
+                "name": "Priya Iyer", 
+                "role": "Residential Specialist - Bengaluru",
+                "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+            }
+        ]
+    },
+    "contact": {
+        "title": "Get in Touch with PrimeNest India",
+        "subtitle": "Looking to buy, sell, or rent? Fill out the form below and our regional advisory team will connect with you.",
+        "bannerImage": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+    }
+}

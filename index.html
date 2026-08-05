@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic UI Project</title>
+    
+    <!-- Fonts & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="navbar container">
+            <!-- Brand Logo -->
+            <a href="#/home" data-route="home" class="logo">
+                <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.69l7.5 6.5v11.31h-5v-6h-5v6h-5V9.19l7.5-6.5zm0-2.19l-10 8.66v13.84h8v-6h4v6h8V9.19l-10-8.66z"/>
+                </svg>
+                <span>PrimeNest</span>
+            </a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <!-- Navigation Links, Theme Switcher & CTA -->
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#/home" data-route="home" class="nav-item active">Home</a></li>
+                    <li><a href="#/properties" data-route="properties" class="nav-item">Properties</a></li>
+                    <li><a href="#/agents" data-route="agents" class="nav-item">Agents</a></li>
+                    <li><a href="#/contact" data-route="contact" class="nav-item">Contact</a></li>
+                </ul>
+               <div class="nav-action-group" style="display: flex; align-items: center; gap: 1rem;">
+                    <!-- Theme Switcher Button -->
+                    <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                        <!-- Sun Icon (shown in dark mode) -->
+                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-14a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 18a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM4.93 6.34a1 1 0 1 0-1.41-1.41 1 1 0 0 0 1.41 1.41zm14.14 14.14a1 1 0 1 0-1.41-1.41 1 1 0 0 0 1.41 1.41zM2 13h2a1 1 0 1 0 0-2H2a1 1 0 1 0 0 2zm18 0h2a1 1 0 1 0 0-2h-2a1 1 0 1 0 0 2zM6.34 19.07l-1.41 1.41a1 1 0 1 0 1.41 1.41l1.41-1.41a1 1 0 0 0-1.41-1.41zm12.73-12.73l1.41-1.41a1 1 0 1 0-1.41-1.41l-1.41 1.41a1 1 0 0 0 1.41 1.41z"/></svg>
+                        <!-- Moon Icon (shown in light mode) -->
+                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.3 2a10 10 0 0 0 9.7 12.5 10 10 0 1 1-11.2-12.3l.1-.2z"/></svg>
+                    </button>
+
+                    <a href="#/contact" data-route="contact" class="btn btn-primary btn-sm">List Property</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area (Dynamically Populated via JS & JSON) -->
+    <main class="main-content">
+        <section id="dynamic-view" class="hero-section container">
+            <!-- Content injected by JavaScript -->
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 BrandName. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Module Entry Point -->
+    <script type="module" src="js/app.js" defer></script>
+</body>
+</html>
