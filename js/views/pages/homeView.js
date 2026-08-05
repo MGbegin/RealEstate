@@ -1,26 +1,34 @@
 export function renderHome(data) {
-    const slidesHTML = data.slides.map((slide, index) => `
-        <div class="hero-slide ${index === 0 ? 'active' : ''}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: ${index === 0 ? '1' : '0'}; transition: opacity 1s ease-in-out;">
+  const slidesHTML = data.slides
+    .map(
+      (slide, index) => `
+        <div class="hero-slide ${index === 0 ? "active" : ""}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: ${index === 0 ? "1" : "0"}; transition: opacity 1s ease-in-out;">
             <img src="${slide.image}" alt="${slide.caption}" style="width: 100%; height: 100%; object-fit: cover;">
             <!-- Dark Overlay for text readability -->
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.45);"></div>
         </div>
-    `).join('');
+    `,
+    )
+    .join("");
 
-    const textSlidesHTML = data.slides.map((slide, index) => `
-        <div class="hero-text-slide ${index === 0 ? 'active' : ''}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: ${index === 0 ? 'flex' : 'none'}; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #ffffff; padding: 0 1rem;">
+  const textSlidesHTML = data.slides
+    .map(
+      (slide, index) => `
+        <div class="hero-text-slide ${index === 0 ? "active" : ""}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: ${index === 0 ? "flex" : "none"}; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #ffffff; padding: 0 1rem;">
             <h1 style="font-size: 3rem; margin-bottom: 1rem; line-height: 1.2; max-width: 800px; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">${slide.title}</h1>
             <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; color: #f3f4f6; text-shadow: 0 1px 2px rgba(0,0,0,0.5);">${slide.subtitle}</p>
             <a href="#/properties" data-route="properties" class="btn btn-primary" style="padding: 0.85rem 2rem; font-size: 1.1rem;">${data.buttonText}</a>
         </div>
-    `).join('');
+    `,
+    )
+    .join("");
 
-    // Initialize full-width background slider logic after DOM insertion
-    setTimeout(() => initFullScreenSlider(), 50);
+  // Initialize full-width background slider logic after DOM insertion
+  setTimeout(() => initFullScreenSlider(), 50);
 
-    return `
+  return `
         <!-- 1. EXISTING WORK: Full Width Synchronized Hero Slider -->
-        <section class="hero-fullscreen" style="position: relative; width: 100vw; margin-left: calc(-50vw + 50%); height: calc(100vh - 80px); min-height: 500px; overflow: hidden;">
+        <section class="hero-fullscreen" style="position: relative; width: 100%; height: calc(100vh - 80px); min-height: 500px; overflow: hidden;">
             <div class="hero-slides-wrapper" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
                 ${slidesHTML}
             </div>
@@ -122,62 +130,64 @@ export function renderHome(data) {
  * Synchronized Fullscreen Background and Text Slider Logic (Preserved)
  */
 function initFullScreenSlider() {
-    const imageSlides = document.querySelectorAll('.hero-slide');
-    const textSlides = document.querySelectorAll('.hero-text-slide');
-    
-    if (imageSlides.length === 0) return;
+  const imageSlides = document.querySelectorAll(".hero-slide");
+  const textSlides = document.querySelectorAll(".hero-text-slide");
 
-    let currentIndex = 0;
-    let slideInterval;
+  if (imageSlides.length === 0) return;
 
-    function showSlide(index) {
-        imageSlides.forEach((slide, i) => {
-            slide.style.opacity = i === index ? '1' : '0';
-        });
+  let currentIndex = 0;
+  let slideInterval;
 
-        textSlides.forEach((textSlide, i) => {
-            if (i === index) {
-                textSlide.style.display = 'flex';
-                setTimeout(() => { textSlide.style.opacity = '1'; }, 50);
-            } else {
-                textSlide.style.display = 'none';
-                textSlide.style.opacity = '0';
-            }
-        });
-    }
+  function showSlide(index) {
+    imageSlides.forEach((slide, i) => {
+      slide.style.opacity = i === index ? "1" : "0";
+    });
 
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % imageSlides.length;
-        showSlide(currentIndex);
-    }
+    textSlides.forEach((textSlide, i) => {
+      if (i === index) {
+        textSlide.style.display = "flex";
+        setTimeout(() => {
+          textSlide.style.opacity = "1";
+        }, 50);
+      } else {
+        textSlide.style.display = "none";
+        textSlide.style.opacity = "0";
+      }
+    });
+  }
 
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + imageSlides.length) % imageSlides.length;
-        showSlide(currentIndex);
-    }
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % imageSlides.length;
+    showSlide(currentIndex);
+  }
 
-    const nextBtn = document.getElementById('nextSlide');
-    const prevBtn = document.getElementById('prevSlide');
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + imageSlides.length) % imageSlides.length;
+    showSlide(currentIndex);
+  }
 
-    if (nextBtn && prevBtn) {
-        nextBtn.onclick = () => {
-            nextSlide();
-            resetTimer();
-        };
-        prevBtn.onclick = () => {
-            prevSlide();
-            resetTimer();
-        };
-    }
+  const nextBtn = document.getElementById("nextSlide");
+  const prevBtn = document.getElementById("prevSlide");
 
-    function startTimer() {
-        slideInterval = setInterval(nextSlide, 5000);
-    }
+  if (nextBtn && prevBtn) {
+    nextBtn.onclick = () => {
+      nextSlide();
+      resetTimer();
+    };
+    prevBtn.onclick = () => {
+      prevSlide();
+      resetTimer();
+    };
+  }
 
-    function resetTimer() {
-        clearInterval(slideInterval);
-        startTimer();
-    }
+  function startTimer() {
+    slideInterval = setInterval(nextSlide, 5000);
+  }
 
+  function resetTimer() {
+    clearInterval(slideInterval);
     startTimer();
+  }
+
+  startTimer();
 }
